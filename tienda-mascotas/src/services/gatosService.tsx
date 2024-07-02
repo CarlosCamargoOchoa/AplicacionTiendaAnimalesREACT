@@ -12,8 +12,12 @@ const gatosService = axios.create({
 
 export const fetchData = async (endpoint: string) => {
   try {
-    const response = await gatosService.get(endpoint);
-    return response.data;
+    const response = await fetch(endpoint);
+    if (!response) {
+      throw new Error('Network response was not ok');
+    }
+    const blob = await response.blob();
+    return blob;
   } catch (error) {
     console.error('Error fetching data:', error);
     throw error;

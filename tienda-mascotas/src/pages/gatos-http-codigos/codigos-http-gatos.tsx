@@ -1,7 +1,7 @@
 import React from 'react';
 import { Row, Col, Card } from 'react-bootstrap';
 import CardGatoComponent from '../../components/card-gatos/card-gato';
-const URL_GATOS = "https://http.cat/";
+const URL_GATOS = "https://cataas.com/cat";
 const cardData = [
     {
         "codigo": 100,
@@ -87,7 +87,7 @@ const CardsPage: React.FC = () => {
       <Row xs={1} md={2} lg={3}>
         {cardData.map((card, index) => (
           <Col key={index}>
-            <CardGatoComponent _imageUrl={URL_GATOS + card.codigo.toString()} />
+            <CardGatoComponent _imageUrl={URL_GATOS} _codigo={card.codigo.toString()} _description={card.descripcion}  />
           </Col>
         ))}
       </Row>
